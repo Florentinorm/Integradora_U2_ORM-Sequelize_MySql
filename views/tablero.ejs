@@ -1,0 +1,264 @@
+<% include partials/head %>
+<% include partials/navbar %>
+<style>
+    body {
+        background-image: linear-gradient(-200deg, rgb(11, 119, 138) 60%, white 60%);
+    }
+</style>
+
+<section id="titulo">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1 style="color: #FFC312;">Tablero Docente
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="modal-footer">
+        <!--calendario-->
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-calendar-week" viewBox="0 0 16 16"  data-bs-toggle="modal" data-bs-target="#calendario">
+                <path
+                    d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
+                <path
+                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+            </svg></a>
+        <!--selected de periodo-->
+        <select class="form-select" aria-label="Default select example" style="width: 200px;">
+            <option selected>Seleccione Periodo</option>
+            
+        </select>
+        <!--button/icon crear curso-->
+        <button type="button" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="27" height="27"
+                fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+            </svg>&nbsp;<a href="/crearCurso" class="link" style="color: white;">Cursos</a>
+        </button>
+    </div>
+    <!-- ventana calendario-->
+<div class="modal fade bd-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="calendario"
+aria-hidden="true">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Calendario escolar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+
+            <iframe 
+                src="https://calendar.google.com/calendar/embed?src=3139l1p54249id5vdsnno473dk%40group.calendar.google.com&ctz=America%2FMexico_City"
+                style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
+            </iframe>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+<!--ventana de ajustes-->
+<div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="ajustes"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-toggle2-off" viewBox="0 0 16 16">
+                        <path d="M9 11c.628-.836 1-1.874 1-3a4.978 4.978 0 0 0-1-3h4a3 3 0 1 1 0 6H9z" />
+                        <path d="M5 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1A5 5 0 1 0 5 3a5 5 0 0 0 0 10z" />
+                    </svg>&nbsp;<a href="#">Activar / Desactivar Curso</a></p>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person-plus" viewBox="0 0 16 16">
+                        <path
+                            d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                        <path fill-rule="evenodd"
+                            d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                    </svg>&nbsp;<a href="#">Participantes</p></a>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-clipboard-plus" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
+                        <path
+                            d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                        <path
+                            d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                    </svg>&nbsp;<a href="#">Planeaciones</a></p>
+                <p data-toggle="modal" data-target=".bd-example-modal-lg"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                        <path
+                            d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>&nbsp;<a href="#">Información</a></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--ventana de informacion-->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true" id="informacion">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Información de curso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="float: right;"><b>Duración: </b>&nbsp;40 hrs</p>
+                <br>
+                <p><b>Aprendizaje</b></p>
+                <p>Programa desde cero, domina Javascript, entiende HTML y aprende de algoritmos. Sí, desde cero.
+                    Entenderás la lógica del código, cómo piensan los programadores y cómo programar juegos, proyectos y
+                    hasta robots y electrónica. Aprender a programar no es fácil, pero este curso lo hace efectivo.</p>
+                <br>
+                <p><b>Temario</b></p>
+                <ul>
+                    <li>Manejar las bases de la programación en Java, C, Python, Go, Ruby, C++, JavaScript, PHP y Ruby.
+                    </li>
+                    <li>Estarán listos para adentrarse de modo avanzado a CUALQUIER área del desarrollo de software:
+                        programación de apps, juegos, web, etc.</li>
+                    <li>Buenas prácticas para escribir código.</li>
+                </ul>
+                <br>
+                <p><b>Actividades</b></p>
+                <ul>
+                    <li>Programar múltiples proyectos.</li>
+                    <li>Entender HTML, CSS y JavaScript.</li>
+                    <li>Crear funciones, eventos, y objetos.</li>
+                    <li>Crear funciones, eventos, y objetos.</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</svg>
+</div>
+<section class="hero hero-bg d-flex justify-content-center align-items-center">
+    <div class="container">
+        <!--activos-->
+        <div>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="50" fill="#2FE90A" />
+            </svg>&nbsp;En ejecución
+        </div>
+        <br>
+        <div class="row">
+
+            <style>
+                .topright {
+                    position: absolute;
+                    top: 10px;
+                    right: 25px;
+                    font-size: 18px;
+                }
+            </style>
+            <!--Curso 1-->
+            <div class="colmd-3">
+                <% for(var i=0; i < Curso.length; i++) { %> 
+                    <% if(Curso[i].estado == true && Curso[i].Esplaneado == true) { %> 
+                <div style="background-color: rgb(202, 202, 202); padding: 20px; width:350px; border-radius: 5px; position: relative;">
+                    <a href="#">
+                        <div class="topright" data-bs-toggle="modal"
+                        data-bs-target="#ajustes">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                class="bi bi-gear-wide-connected" viewBox="0 0 16 16">
+                                <path d="M7.068.727c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622.434l.205-.211c.695-.719 1.888-.03 1.613.931l-.08.284a.96.96 0 0 0 1.187 1.187l.283-.081c.96-.275 1.65.918.931 1.613l-.211.205a.96.96 0 0 0 .434 1.622l.286.071c.97.243.97 1.62 0 1.864l-.286.071a.96.96 0 0 0-.434 1.622l.211.205c.719.695.03 1.888-.931 1.613l-.284-.08a.96.96 0 0 0-1.187 1.187l.081.283c.275.96-.918 1.65-1.613.931l-.205-.211a.96.96 0 0 0-1.622.434l-.071.286c-.243.97-1.62.97-1.864 0l-.071-.286a.96.96 0 0 0-1.622-.434l-.205.211c-.695.719-1.888.03-1.613-.931l.08-.284a.96.96 0 0 0-1.186-1.187l-.284.081c-.96.275-1.65-.918-.931-1.613l.211-.205a.96.96 0 0 0-.434-1.622l-.286-.071c-.97-.243-.97-1.62 0-1.864l.286-.071a.96.96 0 0 0 .434-1.622l-.211-.205c-.719-.695-.03-1.888.931-1.613l.284.08a.96.96 0 0 0 1.187-1.186l-.081-.284c-.275-.96.918-1.65 1.613-.931l.205.211a.96.96 0 0 0 1.622-.434l.071-.286zM12.973 8.5H8.25l-2.834 3.779A4.998 4.998 0 0 0 12.973 8.5zm0-1a4.998 4.998 0 0 0-7.557-3.779l2.834 3.78h4.723zM5.048 3.967c-.03.021-.058.043-.087.065l.087-.065zm-.431.355A4.984 4.984 0 0 0 3.002 8c0 1.455.622 2.765 1.615 3.678L7.375 8 4.617 4.322zm.344 7.646l.087.065-.087-.065z" />
+                            </svg>
+                        </div>
+                    </a>
+                    <br>
+                    <img width="310px" height="200px"
+                        style="border-radius: 8px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+                        src="/images/<%= Curso[i].imagen %>">
+                    <br>
+                    <br>
+                    <center>
+                        <h5><%= Curso[i].nombre %></h5>
+                    </center>
+                    <br>
+                    <br>
+                    <details>
+                        <summary>Ver la descripción de este curso</summary>
+                        <p class="card-text"><%= Curso[i].descripcion %></p>
+                    </details>
+                    <br><br>
+                    <!-- Button trigger modal -->
+                    <div align="center">
+                        <button type="button" class="btn btn-info"><a href="#"
+                                class="link">Contenido</a></button>
+                        <button type="button" class="btn btn-warning"><a href="#"
+                                class="link">Rendimiento</a></button>
+                    </div>
+                </div>
+                <% } %>
+                <% } %>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <br>
+            <!--Divisor-->
+            <div style="width:1000px; height:20px; color:black;"></div>
+
+            <!--Fuera de periodo-->
+            <hr style="width:200%;">
+            <div>&nbsp;&nbsp;
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 120 120">
+                    <circle cx="60" cy="60" r="50" fill="red" />
+                </svg>&nbsp;Fuera de periodo
+            </div>
+            <div style="width:1000px; height:20px; color:black;"></div>
+            <br>
+            <!--FP Curso 1-->
+            <% for(var i=0; i < Curso.length; i++) { %> 
+                <% if(Curso[i].estado == false && Curso[i].Esplaneado == true) { %> 
+            <div
+                style="background-color: rgb(202, 202, 202); padding: 20px; width:350px; border-radius: 5px; position: relative;">
+                <br>
+                <img width="310px" height="200px"
+                    style="border-radius: 8px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+                    src="/images/<%= Curso[i].imagen %>">
+                <br>
+                <br>
+                <center>
+                    <h5><%= Curso[i].nombre %></h5>
+                </center>
+                <br>
+                <!-- Button trigger modal -->
+                <div align="center">
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                    data-bs-target="#informacion">Ver Información</button>
+                </div>
+            </div>
+                <% } %>
+            <% } %>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <div style="width:1000px; height:20px; color:black;"></div>
+        </div>
+    </div>
+</section>
+
+<% include partials/footer %>
